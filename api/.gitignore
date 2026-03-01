@@ -1,0 +1,6 @@
+venv
+setup.md
+setup.txt
+demo.txt
+__pycache__
+.env

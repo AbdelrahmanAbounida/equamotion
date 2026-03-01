@@ -1,0 +1,25 @@
+services:
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - EQUAMOTION_API_KEY=${EQUAMOTION_API_KEY:-equamotion-dev-key}
+    volumes:
+      - ./api:/app
+    restart: unless-stopped
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - VIDEO_API_URL=http://api:8000
+      - VIDEO_API_KEY=${EQUAMOTION_API_KEY:-equamotion-dev-key}
+    depends_on:
+      - api
+    restart: unless-stopped
