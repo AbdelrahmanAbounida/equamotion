@@ -4,7 +4,7 @@
   <img src="web/public/logo.png" alt="EquaMotion Logo" width="250" />
 </p>
 <p align="center">
-    AI-powered math animation generator. Describe a math concept and get a Manim video animation.
+    AI-powered math animation generator. Describe a math concept and get a video animation.
 </p>
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-000?logo=nextdotjs&logoColor=white" alt="Next.js">
@@ -22,14 +22,14 @@
 ## Architecture
 
 - **`web/`** — Next.js frontend (chat UI, model selection, video preview)
-- **`api/`** — Python backend (renders Manim scripts to MP4 videos)
+- **`api/`** — Python backend (renders scripts to MP4 videos)
 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/) 18+
 - [pnpm](https://pnpm.io/) (or npm)
 - [Python](https://www.python.org/) 3.11+
-- [ffmpeg](https://ffmpeg.org/), Cairo, Pango, LaTeX — required by [Manim](https://www.manim.community/) (see [api/README.md](api/README.md) for per-OS instructions)
+- [ffmpeg](https://ffmpeg.org/), Cairo, Pango, LaTeX — required for math equations' animation
 - [Docker](https://www.docker.com/) (optional — for containerized setup)
 
 ## Quick Start
