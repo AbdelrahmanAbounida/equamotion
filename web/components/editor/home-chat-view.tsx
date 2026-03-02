@@ -58,9 +58,7 @@ export function HomeChatView({ chatId }: HomeChatViewProps) {
 
   const shuffledExamples = useMemo(() => shuffleArray(EXAMPLES), []);
 
-  const selectedModelId = useCurrentLLMStore(
-    (state) => state.selectedModelId,
-  );
+  const selectedModelId = useCurrentLLMStore((state) => state.selectedModelId);
 
   const apiKeys = useApiKeysStore((state) => state.keys);
   const loadKeysFromStorage = useApiKeysStore((state) => state.loadFromStorage);
@@ -138,6 +136,15 @@ export function HomeChatView({ chatId }: HomeChatViewProps) {
             ""
           }
           chatId={chatId}
+          onBack={() => {
+            setMessages([]);
+            useVideoPanel.setState({
+              currentVideo: undefined,
+              allVersions: [],
+              isRendering: false,
+            });
+            window.history.replaceState(null, "", "/");
+          }}
         />
 
         <motion.div
